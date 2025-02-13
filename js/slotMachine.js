@@ -23,7 +23,13 @@ export const slotMachine = {
 			this.slots.push(this.getRandomSymbol());
 		}
 		this.calculateStatus();
-		document.getElementById("result").innerHTML = this.slots.join(" ");
+		const resultElement = document.getElementById("result");
+		resultElement.innerHTML = this.slots
+			.map((symbol) => {
+				const colorClass = symbol === "♥" || symbol === "♦" ? "red" : "black";
+				return `<span class="${colorClass}">${symbol}</span>`;
+			})
+			.join(" ");
 		document.getElementById("status").innerText = this.win ? "JE WINT 🎉💰" : "JE VERLIEST 😭🥺";
 		return {
 			slots: this.slots,

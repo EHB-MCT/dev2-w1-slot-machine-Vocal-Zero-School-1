@@ -45,6 +45,9 @@ function showGameResult(win) {
 	if (resultContainer) {
 		resultContainer.innerHTML = win ? "JE WINT 🎉💰" : "JE VERLIEST 😭🥺";
 	}
+	// Log win or lose message in console
+	console.log(win ? "I WON" : "AW DANGIT");
 }
 
 init();
+console.log("LET'S GO GAMBLING");
